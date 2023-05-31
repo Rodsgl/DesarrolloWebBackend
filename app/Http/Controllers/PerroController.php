@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Repositories\PerroRepository;
 use Illuminate\Http\Request;
+use App\Http\Requests\PerroRequest;
 
 
 class PerroController extends Controller
 {
     protected PerroRepository $perroRepo;
 
-    public function __construct()
+    public function __construct(PerroRepository $perroRepo)
     {
-        $this->perroRepo = new PerroRepository();
+        $this->perroRepo = $perroRepo;
     }
 
-    public function guardarPerro(Request $request)
+    public function guardarPerro(PerroRequest $request)
     {
         return $this->perroRepo->guardarPerro($request);
     }
@@ -25,12 +26,12 @@ class PerroController extends Controller
         return $this->perroRepo->listarPerro();
     }
 
-    public function actualizarPerro(Request $request)
+    public function actualizarPerro(PerroRequest $request)
     {
         return $this->perroRepo->actualizarPerro($request);
     }
 
-    public function eliminarPerro(Request $request)
+    public function eliminarPerro(PerroRequest $request)
     {
         return $this->perroRepo->eliminarPerro($request);
     }
