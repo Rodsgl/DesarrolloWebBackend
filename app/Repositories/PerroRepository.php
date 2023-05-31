@@ -30,7 +30,7 @@ class PerroRepository{
         try {
             $solicitud = Perro::find($request->id);
             if(!$solicitud){
-                return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+                return response()->json(["error"], Response::HTTP_BAD_REQUEST);
             }
             $this->agregarPerro($request, $solicitud);
             return response()->json(["perro" => $solicitud], Response::HTTP_OK);
@@ -39,6 +39,22 @@ class PerroRepository{
         }
         
     }
+
+    public function eliminarPerro($request)
+    {
+        try {
+            $solicitud = Perro::find($request->id);
+            if(!$solicitud){
+                return response()->json(["error"], Response::HTTP_BAD_REQUEST);
+            }
+           $solicitud->delete();
+            return response()->json(["perro" => $solicitud], Response::HTTP_OK);
+        } catch (Exception $e) {
+            return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
+        
+    }
+
     protected function agregarPerro($data, Perro $perro)
     {
         $perro->nombre = $data->nombre ?? $perro->nombre;

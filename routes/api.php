@@ -23,5 +23,6 @@ Route::prefix('/perro')->group(function () use ($router) {
     $router->post('guardar', [PerroController::class, 'guardarPerro']);
     $router->get('listar',[PerroController::class, 'listarPerro']);
     $router->post('actualizar', [PerroController::class, 'actualizarPerro']);
+    $router->post('eliminar', [PerroController::class, 'eliminarPerro']);
 
 });
