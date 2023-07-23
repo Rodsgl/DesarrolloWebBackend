@@ -21,9 +21,9 @@ class InteraccionController extends Controller
         return $this->interacRepo->guardarInteraccion($request);
     }
 
-    public function listarInteraccion()
+    public function listarInteraccion(Request $request)
     {
-        return $this->interacRepo->listarInteraccion();
+        return $this->interacRepo->listarInteraccion($request);
     }
 
     // public function actualizarPerro(PerroRequest $request)

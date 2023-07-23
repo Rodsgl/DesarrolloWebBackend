@@ -19,10 +19,24 @@ class InteraccionRepository{
         }
     }
 
-    public function listarInteraccion()
+    // public function listarInteraccion()
+    // {
+    //     $interaccion = Interaccion::all();
+    //     return response()->json(["interaccion" => $interaccion], Response::HTTP_OK);
+    // }
+
+    public function listarInteraccion($request)
     {
-        $interaccion = Interaccion::all();
-        return response()->json(["interaccion" => $interaccion], Response::HTTP_OK);
+        try {
+            $solicitud = Interaccion::where('perro_interesado_id', $request->perro_interesado_id)->get();
+            if(!$solicitud){
+                return response()->json(["error"], Response::HTTP_BAD_REQUEST);
+            }
+            return response()->json(["interaccion" => $solicitud], Response::HTTP_OK);
+        } catch (Exception $e) {
+            return response()->json(["error" => $e->getMessage()], Response::HTTP_BAD_REQUEST);
+        }
+        
     }
 
     // public function actualizarPerro($request)
