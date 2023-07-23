@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InteraccionController;
 use App\Http\Controllers\PerroController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -25,4 +26,9 @@ Route::prefix('/perro')->group(function () use ($router) {
     $router->post('actualizar', [PerroController::class, 'actualizarPerro']);
     $router->post('eliminar', [PerroController::class, 'eliminarPerro']);
 
+});
+
+Route::prefix('/interaccion')->group(function () use ($router) {
+    $router->post('guardar', [InteraccionController::class, 'guardarInteraccion']);
+    $router->get('listar', [InteraccionController::class, 'listarInteraccion']);
 });

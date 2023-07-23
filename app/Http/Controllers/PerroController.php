@@ -31,7 +31,7 @@ class PerroController extends Controller
         return $this->perroRepo->actualizarPerro($request);
     }
 
-    public function eliminarPerro(PerroRequest $request)
+    public function eliminarPerro(Request $request)
     {
         return $this->perroRepo->eliminarPerro($request);
     }

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Perro extends Model
 {
     use HasFactory;
-    public $table = 'perros';
+    public $table = 'perro';
     protected $primaryKey = 'id';
     public $incrementing = 'true';
 

@@ -18,6 +18,14 @@ class Interaccion extends Model
         'preferencia',
     ];
     
+    public function perroInteresado()
+    {
+        return $this->belongsTo(Perro::class, 'perro_interesado_id');
+    }
 
+    public function perroCandidato()
+    {
+        return $this->belongsTo(Perro::class, 'perro_candidato_id');
+    }
     
 }

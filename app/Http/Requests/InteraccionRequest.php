@@ -7,7 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Response;
 
-class PerroRequest extends FormRequest
+class InteraccionRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -17,9 +17,9 @@ class PerroRequest extends FormRequest
     public function rules()
     {
         return [
-            "nombre" => "required|unique:perro|string",
-            "url" => "nullable|max:900",
-            //"descripcion" => "required|unique:descripcion|string",
+            "perro_interesado_id" => "required|unique:perro|integer",
+            "perro_candidato_id" => "nullable|max:900",
+            "preferencia" => "required|unique:interaccion|integer",
         ];
     }
 

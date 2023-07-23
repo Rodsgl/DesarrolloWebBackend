@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('interaccions', function (Blueprint $table) {
+        Schema::create('interaccion', function (Blueprint $table) {
             $table->id();
-            $table->string('perro_interesado_id');
-            $table->string('perro_candidato_id');
+            $table->unsignedBigInteger('perro_interesado_id');
+            $table->unsignedBigInteger('perro_candidato_id');
             $table->string('preferencia');
             $table->timestamps();
+
+            $table->foreign('perro_interesado_id')->references('id')->on('perro');
+            $table->foreign('perro_candidato_id')->references('id')->on('perro');
         });
     }
 
@@ -25,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('interaccions');
+        Schema::dropIfExists('interaccion');
     }
 };
