@@ -17,9 +17,9 @@ class InteraccionRequest extends FormRequest
     public function rules()
     {
         return [
-            "perro_interesado_id" => "required|unique:perro|integer",
-            "perro_candidato_id" => "nullable|max:900",
-            "preferencia" => "required|unique:interaccion|integer",
+            "perro_interesado_id" => "required|integer",
+            "perro_candidato_id" => "required|integer",
+            "preferencia" => "required|string",
         ];
     }
 

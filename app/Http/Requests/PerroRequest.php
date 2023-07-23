@@ -19,7 +19,7 @@ class PerroRequest extends FormRequest
         return [
             "nombre" => "required|unique:perro|string",
             "url" => "nullable|max:900",
-            //"descripcion" => "required|unique:descripcion|string",
+            "descripcion" => "required|unique:perro|string",
         ];
     }
 
